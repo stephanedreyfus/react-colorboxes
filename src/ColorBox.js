@@ -4,11 +4,11 @@ import "./ColorBox.css";
 import ColorCard from "./ColorCard";
 import ChangeBtn from "./ChangeBtn";
 
-const ColorBox = ({ color, changeHandler }) => {
+const ColorBox = ({ id, color, changeHandler }) => {
   return (
-    <div className="color-box">
+    <div className="color-box" id={id}>
       <ColorCard color={color}/>
-      <ChangeBtn doChange={changeHandler}/>
+      <ChangeBtn id={id} changeHandler={changeHandler}/>
     </div>
   );
 }

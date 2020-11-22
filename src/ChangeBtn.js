@@ -2,9 +2,9 @@
 import React from "react";
 import "./ChangeBtn.css";
 
-const ChangeBtn = ({ doChange }) => {
+const ChangeBtn = ({ id, changeHandler }) => {
   return (
-    <button onClick={doChange()}>Change</button>
+    <button onClick={changeHandler}>Change</button>
   );
 }
 

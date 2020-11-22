@@ -2,6 +2,10 @@
 import React from "react";
 import "./ColorCard.css";
 
-const ColorCard = ({ color }) => <div style={{background: color}}></div>
+const ColorCard = ({ color }) => {
+  return (
+    <div className="card" style={{background: color}} />
+  );
+}
 
 export default ColorCard;

@@ -1,6 +1,5 @@
 // Element that will hold all the color squares.
 import React from "react";
-import { v4 as uuidv4 } from "uuid";
 import "./Board.css";
 import ColorBox from "./ColorBox";
 
@@ -23,11 +22,31 @@ const colors = [
   "peachpuff"
 ]
 
+const randInt = (maxInt) => {
+  return Math.floor(Math.random() * maxInt);
+}
+
+const clickHandler = (targetId) => {
+  // Might have to change targetId to string if not coerced.
+  let card = document.getElementById(targetId);
+  let newColor = colors[randInt(colors.length)];
+
+  card.style.background = newColor;
+
+  // for testing
+  return [card, newColor];
+}
+
 const Board = () => {
   return (
     <section className="Board">
-      {colors.map(c => (
-        <ColorBox color={c} key={uuidv4()}/>
+      {colors.map((c, idx) => (
+        <ColorBox
+          key={idx}
+          id={idx}
+          color={c}
+          changeHandler={clickHandler}
+        />
       ))}
     </section>
   );
