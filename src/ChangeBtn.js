@@ -4,7 +4,7 @@ import "./ChangeBtn.css";
 
 const ChangeBtn = ({ id, changeHandler }) => {
   return (
-    <button onClick={changeHandler}>Change</button>
+    <button className="change" onClick={() => changeHandler(id)}>Change</button>
   );
 }
 

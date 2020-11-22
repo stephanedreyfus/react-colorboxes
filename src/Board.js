@@ -26,9 +26,14 @@ const randInt = (maxInt) => {
   return Math.floor(Math.random() * maxInt);
 }
 
-const clickHandler = (targetId) => {
-  // Might have to change targetId to string if not coerced.
-  let card = document.getElementById(targetId);
+const clickHandler = (currId) => {
+  // Ensure that a card other than target is changed.
+  let targetId = currId;
+  while (targetId === currId) {
+    targetId = randInt(colors.length);
+  }
+
+  let card = document.getElementById(targetId).firstChild;
   let newColor = colors[randInt(colors.length)];
 
   card.style.background = newColor;
