@@ -26,6 +26,8 @@ const randInt = (maxInt) => {
   return Math.floor(Math.random() * maxInt);
 }
 
+let lastChanged = null;
+
 const clickHandler = (currId) => {
   // Ensure that a card other than target is changed.
   let targetId = currId;
@@ -37,6 +39,8 @@ const clickHandler = (currId) => {
   let newColor = colors[randInt(colors.length)];
 
   card.style.background = newColor;
+  card.innerText = "changed";
+  lastChanged = card;
 
   // for testing
   return [card, newColor];
