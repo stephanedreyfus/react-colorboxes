@@ -1,5 +1,5 @@
 // Element that will hold all the color squares.
-import React from "react";
+import React, { useState } from "react";
 import "./Board.css";
 import ColorBox from "./ColorBox";
 
@@ -26,27 +26,32 @@ const randInt = (maxInt) => {
   return Math.floor(Math.random() * maxInt);
 }
 
-let lastChanged = null;
-
-const clickHandler = (currId) => {
-  // Ensure that a card other than target is changed.
-  let targetId = currId;
-  while (targetId === currId) {
-    targetId = randInt(colors.length);
-  }
-
-  let card = document.getElementById(targetId).firstChild;
-  let newColor = colors[randInt(colors.length)];
-
-  card.style.background = newColor;
-  card.innerText = "changed";
-  lastChanged = card;
-
-  // for testing
-  return [card, newColor];
-}
 
 const Board = () => {
+  const [changed, setChanged] = useState(null);
+  
+  const clickHandler = (currId) => {
+    // Ensure that a card other than target is changed.
+    if (changed) {
+      changed.innerText = "";
+    }
+    
+    let targetId = currId;
+    while (targetId === currId) {
+      targetId = randInt(colors.length);
+    }
+    
+    let card = document.getElementById(targetId).firstChild;
+    let newColor = colors[randInt(colors.length)];
+    
+    card.style.background = newColor;
+    card.innerText = "changed";
+    setChanged(card);
+    
+    // for testing
+    return [card, newColor];
+  }
+
   return (
     <section className="Board">
       {colors.map((c, idx) => (
