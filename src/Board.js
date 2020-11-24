@@ -35,17 +35,17 @@ const Board = () => {
     if (changed) {
       changed.innerText = "";
     }
-    
+
     let targetId = currId;
     while (targetId === currId) {
       targetId = randInt(colors.length);
     }
     
-    let card = document.getElementById(targetId).firstChild;
+    let card = document.getElementById(targetId).firstChild
     let newColor = colors[randInt(colors.length)];
     
     card.style.background = newColor;
-    card.innerText = "changed";
+    card.firstChild.innerText = "changed";
     setChanged(card);
     
     // for testing

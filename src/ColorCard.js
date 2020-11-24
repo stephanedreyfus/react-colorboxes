@@ -4,7 +4,9 @@ import "./ColorCard.css";
 
 const ColorCard = ({ color }) => {
   return (
-    <div className="card" style={{background: color}} />
+    <div className="card" style={{background: color}} >
+      <span className="card-message"/>
+    </div>
   );
 }
 
