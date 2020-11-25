@@ -8,9 +8,47 @@
   display: flex;
 }
 
-.card-message {
+/* .card-message {
   text-shadow: -1px 1px 2px rgb(255, 255, 255),
   1px 1px 2px rgb(255, 255, 255),
   1px -1px 0 rgb(255, 255, 255),
   -1px -1px 0 rgb(255, 255, 255);
+}
+
+animate {
+  font-size: xx-large;
+  color: #20e0ea;
+  text-shadow: -5px 5px 4px rgb(255 0 0),
+  5px 5px 4px rgb(255, 0, 0),
+  5px -5px 4px rgb(255, 0, 0),
+  -5px -5px 4px rgb(255, 0, 0);
+} */
+
+.card-message {
+  font-size: xx-large;
+  color: #20e0ea;
+  text-shadow: -5px 5px 4px rgb(255 0 0),
+  5px 5px 4px rgb(255, 0, 0),
+  5px -5px 4px rgb(255, 0, 0),
+  -5px -5px 4px rgb(255, 0, 0);
+  animation: warning 1000ms forwards;
+}
+
+@keyframes warning {
+  from {
+    font-size: xx-large;
+    color: #20e0ea;
+    text-shadow: -5px 5px 4px rgb(255 0 0),
+    5px 5px 4px rgb(255, 0, 0),
+    5px -5px 4px rgb(255, 0, 0),
+    -5px -5px 4px rgb(255, 0, 0);
+  }
+  to {
+    font-size: initial;
+    color: black;
+    text-shadow: -1px 1px 2px rgb(255, 255, 255),
+    1px 1px 2px rgb(255, 255, 255),
+    1px -1px 0 rgb(255, 255, 255),
+    -1px -1px 0 rgb(255, 255, 255);
+  }
 }

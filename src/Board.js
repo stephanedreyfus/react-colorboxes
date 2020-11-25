@@ -46,6 +46,7 @@ const Board = () => {
     
     card.style.background = newColor;
     card.firstChild.innerText = "changed";
+    card.firstChild.classList.add("card-message");
     setChanged(card);
     
     // for testing

@@ -5,7 +5,7 @@ import "./ColorCard.css";
 const ColorCard = ({ color }) => {
   return (
     <div className="card" style={{background: color}} >
-      <span className="card-message"/>
+      <span id="message"/>
     </div>
   );
 }
