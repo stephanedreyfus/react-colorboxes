@@ -26,22 +26,26 @@ const randInt = (maxInt) => {
   return Math.floor(Math.random() * maxInt);
 }
 
-
 const Board = () => {
   const [changed, setChanged] = useState(null);
   
   const clickHandler = (currId) => {
-    // Ensure that a card other than target is changed.
+    // Clear change message from previous card and set new span.
+    let newSpan = document.createElement("span");
+    newSpan.id = "message";
+
     if (changed) {
       changed.innerText = "";
+      changed.append(newSpan);
     }
-
+    
+    // Ensure that a card other than target is changed.
     let targetId = currId;
     while (targetId === currId) {
       targetId = randInt(colors.length);
     }
     
-    let card = document.getElementById(targetId).firstChild
+    let card = document.getElementById(targetId).firstChild;
     let newColor = colors[randInt(colors.length)];
     
     card.style.background = newColor;
